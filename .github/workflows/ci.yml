@@ -67,4 +67,4 @@ jobs:
         VERSION=$(yq e '.Values.image.tag' helm-app/values.yaml)
         mkdir helm-release
         helm package helm-app/ -d helm-release
-        helm push helm-release/helm-app-${VERSION}.tgz oci://zohflux.azurecr.io/zohflux
+        helm push helm-release/zoh-argocd-${VERSION}.tgz oci://zohflux.azurecr.io/zohflux
