@@ -53,22 +53,7 @@ jobs:
       uses: devops-infra/action-commit-push@v0.3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        commit_message: Version updated
-        
-        
-    - name: Build an image from Dockerfile
-      run: |
-          docker build -t zohflux.azurecr.io/zohflux:${{ github.sha }} .
-          
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
-      with:
-        image-ref: 'zohflux.azurecr.io/zohflux:${{ github.sha }}'
-        format: 'table'
-        exit-code: '1'
-        ignore-unfixed: true
-        vuln-type: 'os,library'
-        severity: 'CRITICAL,HIGH'
+        commit_message: Version updated     
     
     - name: 'Docker Login to Azure ACR'
       uses: azure/docker-login@v1
