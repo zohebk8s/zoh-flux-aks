@@ -69,3 +69,17 @@ jobs:
         ignore-unfixed: true
         vuln-type: 'os,library'
         severity: 'CRITICAL,HIGH'
+    
+    - name: 'Docker Login to Azure ACR'
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+        
+    - name: Publish Helm OCI
+      run: |
+        VERSION=$(yq e '.Values.image.tag' helm-app/values.yaml)
+        mkdir helm-release
+        helm package helm-app/ -d helm-release
+        helm push helm-release/helm-app-${VERSION}.tgz oci://zohflux.azurecr.io/zohflux
