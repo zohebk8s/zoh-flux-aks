@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       DEPLOY_GITOPS_REPO: 'zohebs341/flux-aks'
       DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
