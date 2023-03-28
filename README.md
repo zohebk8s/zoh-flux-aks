@@ -9,3 +9,4 @@ Github Actions will trigger a pipeline with below actions:
 3. Update commit tag in helm/values.yaml
 4. Push the change
 5. As soon as the tag has been replaced, ArgoCD will deployed the tag in AKS Cluster
+6. Repo Structuring - In Progress

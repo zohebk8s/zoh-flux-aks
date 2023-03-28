@@ -1,0 +1,25 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+ name: k8s-action-runner
+ namespace: actions-runner-system
+spec:
+ replicas: 2
+ template:
+   spec:
+     repository: zohebk8s/zoh-flux-aks
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: hr-runners-deployment-autoscaler
+  namespace: actions-runner-system
+spec:
+  scaleTargetRef:
+    name: k8s-action-runner
+  minReplicas: 5
+  maxReplicas: 6
+  scaleUpTriggers:
+  - duration: 5m0s
+    githubEvent:
+      workflowJob: {}
