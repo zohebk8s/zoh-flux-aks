@@ -53,18 +53,4 @@ jobs:
       uses: devops-infra/action-commit-push@v0.3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        commit_message: Version updated     
-    
-    - name: 'Docker Login to Azure ACR'
-      uses: azure/docker-login@v1
-      with:
-        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-        
-    - name: Publish Helm OCI
-      run: |
-        VERSION=$(yq e '.Values.image.tag' helm-app/values.yaml)
-        mkdir helm-release
-        helm package helm-app/ -d helm-release
-        helm push helm-release/zoh-argocd-${VERSION}.tgz oci://zohflux.azurecr.io/zohflux
+        commit_message: Version updated
