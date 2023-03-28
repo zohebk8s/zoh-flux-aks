@@ -10,3 +10,4 @@ Github Actions will trigger a pipeline with below actions:
 4. Push the change
 5. As soon as the tag has been replaced, ArgoCD will deployed the tag in AKS Cluster
 6. Repo Structuring - In Progress
+7. Added runners in K8s Cluster
