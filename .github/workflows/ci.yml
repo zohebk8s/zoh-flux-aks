@@ -43,6 +43,10 @@ jobs:
           echo "Pushing image to Azure ACR..."
           docker push zohflux.azurecr.io/zohflux:$git_hash
     
+    - name: Build an image from Dockerfile
+      run: |
+        docker build -t zohflux.azurecr.io/zohflux:${{ github.sha }} .
+        
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
