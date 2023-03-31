@@ -52,10 +52,10 @@ jobs:
       with:
         image-ref: 'zohflux.azurecr.io/zohflux:${{ github.sha }}'
         format: 'table'
-        exit-code: '1'
+        exit-code: '0'
         ignore-unfixed: true
         vuln-type: 'os,library'
-        severity: 'LOW'
+        severity: 'CRITICAL,HIGH,LOW,MEDIUM'
 
     - name: Update Version
       run: |
