@@ -8,7 +8,7 @@ image:
   repository: "zohflux.azurecr.io/zohflux"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: f28354e
+  tag: 8fd74da
 
 imagePullSecrets:
 - name: acrcred
