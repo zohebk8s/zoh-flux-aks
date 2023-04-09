@@ -2,7 +2,7 @@
 
 Pipeline is configured in such a way that whenever commit happens in main branch.
 
-Github Actions will trigger a pipeline with below actions
+Github Actions will trigger a pipeline with below actions:
 
 1. Build an Image
 2. Push Image to ACR
