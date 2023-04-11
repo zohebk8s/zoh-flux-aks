@@ -41,20 +41,7 @@ jobs:
           echo "Pushing image to Azure ACR..."
           docker push zohargo.azurecr.io/zohargo:$git_hash
     
-    - name: Build an image from Dockerfile
-      run: |
-        docker build -t zohargo.azurecr.io/zohargo:${{ github.sha }} .
-        
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
-      with:
-        image-ref: 'zohargo.azurecr.io/zohargo:${{ github.sha }}'
-        format: 'table'
-        exit-code: '0'
-        ignore-unfixed: true
-        vuln-type: 'os,library'
-        severity: 'CRITICAL,HIGH,LOW,MEDIUM'
-
+    
     - name: Update Version
       run: |
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
