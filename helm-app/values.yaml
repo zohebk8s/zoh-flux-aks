@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: "zohargo.azurecr.io/zohargocore"
+  repository: "zohargo.azurecr.io/zohargo"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: 690def3
