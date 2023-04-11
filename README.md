@@ -12,4 +12,11 @@ Github Actions will trigger a pipeline with below actions:
 6. Repo Structuring - In Progress
 7. Added runners in K8s Cluster
 8. Added Image Scanning - Aqua Trivy
-9. Runners are available in GKE Cluster
+9. Runners are available in GKE Cluster.
+
+The runner deployment will not work in GKE -v1.24.9-gke.3200. In cluster, the runners will be up/running. But it won't be availble to use.(As it will be in offline state in Github)
+
+Add below code in order to make it work:
+
+<img width="173" alt="image" src="https://user-images.githubusercontent.com/128701612/231151321-87e14148-39f2-4110-9ec4-06dad5f55ef7.png">
+
