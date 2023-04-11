@@ -11,9 +11,7 @@ jobs:
   build:
 
     runs-on: self-hosted
-    env:
-      DEPLOY_GITOPS_REPO: 'zohebs341/flux-aks'
-      DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+  
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
@@ -39,18 +37,18 @@ jobs:
       run: |
           # Build a docker container and push it to Azure ACR
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
-          docker build -t zohflux.azurecr.io/zohflux:$git_hash .
+          docker build -t zohargo.azurecr.io/zohargo:$git_hash .
           echo "Pushing image to Azure ACR..."
-          docker push zohflux.azurecr.io/zohflux:$git_hash
+          docker push zohargo.azurecr.io/zohargo:$git_hash
     
     - name: Build an image from Dockerfile
       run: |
-        docker build -t zohflux.azurecr.io/zohflux:${{ github.sha }} .
+        docker build -t zohargo.azurecr.io/zohargo:${{ github.sha }} .
         
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: 'zohflux.azurecr.io/zohflux:${{ github.sha }}'
+        image-ref: 'zohargo.azurecr.io/zohargo:${{ github.sha }}'
         format: 'table'
         exit-code: '0'
         ignore-unfixed: true
