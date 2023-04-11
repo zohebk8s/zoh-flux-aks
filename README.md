@@ -12,3 +12,4 @@ Github Actions will trigger a pipeline with below actions:
 6. Repo Structuring - In Progress
 7. Added runners in K8s Cluster
 8. Added Image Scanning - Aqua Trivy
+9. Runners are available in GKE Cluster
