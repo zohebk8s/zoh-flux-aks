@@ -8,7 +8,7 @@ image:
   repository: "zohargo.azurecr.io/zohargo"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 896b2a8
+  tag: 6dd9fe5
 
 imagePullSecrets:
 - name: acrcred
