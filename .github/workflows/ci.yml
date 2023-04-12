@@ -2,9 +2,9 @@ name: Build and Push Image to Azure ACR
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "uat-kind" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "uat-kind" ]
 
 jobs:
 
