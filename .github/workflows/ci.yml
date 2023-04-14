@@ -46,11 +46,11 @@ jobs:
           tag=$(cat ./helm-app/values.yaml | grep tag: | awk '{print $2}')
           sed -i "s/$tag/$git_hash/" ./helm-app/values.yaml
 
-     - name: Update Version in KSA Helm Folder
+    - name: Update Version in KSA Helm Folder
       run: |
-          git_hash=$(git rev-parse --short "$GITHUB_SHA")
-          tag=$(cat ./ksa-helm-app/values.yaml | grep tag: | awk '{print $2}')
-          sed -i "s/$tag/$git_hash/" ./ksa-helm-app/values.yaml
+         git_hash=$(git rev-parse --short "$GITHUB_SHA")
+         tag=$(cat ./ksa-helm-app/values.yaml | grep tag: | awk '{print $2}')
+         sed -i "s/$tag/$git_hash/" ./ksa-helm-app/values.yaml
           
     - name: Commit and push changes
       uses: devops-infra/action-commit-push@v0.3
