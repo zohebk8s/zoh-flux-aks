@@ -1,4 +1,4 @@
-# Gitops Implementation ArgoCD
+# Gitops Implementation ArgoCD:
 
 Pipeline is configured in such a way that whenever commit happens in main branch.
 
