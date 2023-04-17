@@ -2,7 +2,7 @@ name: Build and Push Image to Azure ACR
 
 on:
   push:
-    branches: [ "snyk-fix-f2920646eea40843dc08ab4a22b0f501" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
