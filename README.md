@@ -9,10 +9,8 @@ Github Actions will trigger a pipeline with below actions:
 3. Update commit tag in helm/values.yaml
 4. Push the change
 5. As soon as the tag has been replaced, ArgoCD will deployed the tag in AKS Cluster
-6. Repo Structuring - In Progress
-7. Added runners in K8s Cluster
-8. Added Image Scanning - Aqua Trivy
-9. Runners are available in GKE Cluster.
+6. Added runners in K8s Cluster
+7. Runners are available in GKE Cluster.
 
 The runner deployment will not work in GKE -v1.24.9-gke.3200. In cluster, the runners will be up/running. But it won't be availble to use.(As it will be in offline state in Github)
 
