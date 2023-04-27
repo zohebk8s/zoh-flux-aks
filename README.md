@@ -1,6 +1,6 @@
 # Gitops Implementation ArgoCD:
 
-Pipeline is configured in such a way that whenever commit happens in main branch.
+Pipeline is configured in such a way that whenever commit happens in main/development branch.
 
 Github Actions will trigger a pipeline with below actions:
 
